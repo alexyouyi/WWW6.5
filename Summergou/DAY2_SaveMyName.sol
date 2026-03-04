@@ -1,8 +1,21 @@
-function saveAndRetrieve(string memory myname, string memory mybio, string memory myage) public returns (string memory, string memory, string memory) {
-    name = myname;
-    bio = mybio;
-    age = myage;
-    return (name, bio, age);
+//SPDX-License-Identifier:MIT
+
+pragma solidity ^0.8.8;
+
+contract SaveMyName{
+
+    string name;
+    string bio;
+
+    function add(string memory _name, string memory _bio)public{
+        name = _name;
+        bio = _bio;
+    }
+
+    function retrieve() public view returns(string memory, string memory){
+        return(name, bio);
+    }
+
 }
 
 
