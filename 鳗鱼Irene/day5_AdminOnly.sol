@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0
+pragma solidity ^0.8.0；
 
-contract AdminOnly {
+contract AdmjinOnly {
     address public owner;
     uint256 public treasureAmount;
     mapping(address => uint256) public withdrawalAllowance;
