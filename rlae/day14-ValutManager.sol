@@ -15,21 +15,21 @@ contract VaultManager {
     event BoxNamed(address indexed boxAddress, string name);//用户存款箱自定义名称
 
     function createBasicBox() external returns (address) {
-        BasicDepositBox box = new BasicDepositBox(); //new BasicDepositBox 合约并将其地址存储在变量 box 
+        BasicDepositBox box = new BasicDepositBox(msg.sender); //new BasicDepositBox 合约并将其地址存储在变量 box 
         userDepositBoxes[msg.sender].push(address(box)); // box list add新存款箱
         emit BoxCreated(msg.sender, address(box), "Basic");
         return address(box);
     }
 
     function createPremiumBox() external returns (address) {
-        PremiumDepositBox box = new PremiumDepositBox();
+        PremiumDepositBox box = new PremiumDepositBox(msg.sender);
         userDepositBoxes[msg.sender].push(address(box));
         emit BoxCreated(msg.sender, address(box), "Premium");
         return address(box);
     }
 
     function createTimeLockedBox(uint256 lockDuration) external returns (address) { // add  lockDuration
-        TimeLockedDepositBox box = new TimeLockedDepositBox(lockDuration);
+        TimeLockedDepositBox box = new TimeLockedDepositBox(msg.sender,lockDuration);
         userDepositBoxes[msg.sender].push(address(box));
         emit BoxCreated(msg.sender, address(box), "TimeLocked");
         return address(box);
