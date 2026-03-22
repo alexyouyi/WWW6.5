@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.18;
 
-import "./SubscriptionStorageLayout.sol";
+import "./Day17_SubscriptionStorageLayout.sol";
 
 contract SubsscriptionLogicV1 is SubscriptionStorageLayout {
 
